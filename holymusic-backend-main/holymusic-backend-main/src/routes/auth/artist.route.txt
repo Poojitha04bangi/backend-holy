@@ -1,0 +1,22 @@
+import { Router } from 'express';
+import * as artist from '@/controllers/artist.controller';
+
+
+const router = Router();
+
+/**
+ *  artist
+ */
+
+router.post('/artist/register', artist.Artist_signUp);
+router.post('/artist/login', artist.Artist_signIn);
+
+router.get('/artist',artist.getAllArtist);
+router.get('/artist/emailuser/:email',artist.getArtistById);
+
+
+router.post('/artist/forgot-password',artist.Artist_forgotPassword);
+router.post('/artist/reset-password/',artist.Artist_resetPassword);
+
+router.post('/admin/logout', artist.logout);
+export default router;
